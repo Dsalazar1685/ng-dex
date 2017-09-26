@@ -5,9 +5,11 @@ angular.module('pokedex')
       $scope.status = '  ';
       $scope.customFullscreen = false;
 
-      $scope.showAdvanced = function(ev) {
+      $scope.showAdvanced = function(ev, mon) {
+         console.log(mon)
       $mdDialog.show({
         controller: DialogController,
+        locals: {mon: mon},
         templateUrl: './template1.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -21,7 +23,8 @@ angular.module('pokedex')
     });
   };
 
-    function DialogController($scope, $mdDialog) {
+    function DialogController($scope, $mdDialog, mon) {
+      $scope.mon = mon;
       $scope.hide = function() {
       $mdDialog.hide();
     };
@@ -47,10 +50,10 @@ angular.module('pokedex')
     },
 
     template: `
-    <div class="pokemon-entry" ng-click="showAdvanced($event)">
+    <div class="pokemon-entry" ng-click="showAdvanced($event, $ctrl.mon)">
       <h1>{{$ctrl.mon.name}}</h1>
       <img class="image" src="{{$ctrl.image()}}"
-      <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+      <md-button class="md-primary md-raised" ng-click="showAdvanced($event, $ctrl.mon)">
       Expand
     </md-button>
     </div>`
