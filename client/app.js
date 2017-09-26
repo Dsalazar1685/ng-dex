@@ -92,10 +92,11 @@ angular.module('pokedex', ['ngMaterial'])
   controller: function(pokeApi) {
     this.apiService = pokeApi
     this.getPokemon = (pokemon) => {
-      this.pokemon = pokemon
+      this.pokemon = pokemon.results
     }
     this.pokemon = pokeData.results;
-    pokeApi.search(this.getPokemon)
+    pokeApi.search('https://pokeapi.co/api/v2/pokemon?limit=151', 'pokeData')
+    .then(this.getPokemon)
   },
   template: `<entries class="pokemon-container" pokemon="$ctrl.pokemon"></entries>`
 })

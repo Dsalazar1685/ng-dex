@@ -1,25 +1,25 @@
 angular.module('pokedex')
   .service('pokeApi', function($http) {
-    this.search = function(callback) {
+    this.search = function(url, storage, callback) {
 
-      var pokemon = JSON.parse(localStorage.getItem('pokeData'))
+      var pokemon = JSON.parse(localStorage.getItem(storage))
       if(pokemon) {
-        console.log(pokemon)
-        return callback(pokemon);
+        //console.log(pokemon)
+        return Promise.resolve(pokemon);
       }
       //$httpProvider.defaults.headers.get = { 'Access-Control-Allow-Origin' : '*' }
-      $http({
+      return $http({
         method: 'GET',
-        url: 'https://pokeapi.co/api/v2/pokemon?limit=151',
+        url: url,
         dataType: 'jsonp'
       })
         .then(({data}) => {
-          localStorage.setItem('pokeData', JSON.stringify(data.results))
-          callback(data.results);
+          localStorage.setItem(storage, JSON.stringify(data))
+          return data;
         })
         .catch(function({data}) {
 
-            console.error(data.error);
+            console.log('An error occurred');
 
         });
     };

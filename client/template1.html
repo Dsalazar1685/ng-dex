@@ -13,8 +13,19 @@
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        <h2>Pokemon data goes here</h2>
  <img ng-src="./images/sprites/sprites/pokemon/model/{{mon.url.split('/')[6]}}.png">
+ <h2 ng-if="!details">Details go here</h2>
+ <p ng-if="details">{{details.abilities[0].ability.name}}</p>
+<!--  <h2>Type(s): {{details.types[1].type.name  details.types[0].type.name}}</h2>
+Type(s): {{details.types[1].type.name  details.types[0].type.name
+ <p>Base Stats:
+    HP: {{details.stats[5].base_stat}}
+    Attack: {{details.stats[4].base_stat}}
+    Defense:  {{details.stats[3].base_stat}}
+    Special Attack:  {{details.stats[2].base_stat}}
+    Special Defense:  {{details.stats[1].base_stat}}
+    Speed:  {{details.stats[0].base_stat}}
+ </p> -->
 
 
       </div>
