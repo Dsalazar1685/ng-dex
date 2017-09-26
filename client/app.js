@@ -87,7 +87,7 @@ var pokeData =
   "next": "https://pokeapi.co/api/v2/pokemon/?offset=20"
 }
 
-angular.module('pokedex', ['ngMaterial'])
+angular.module('pokedex', ['ngMaterial', 'angularCharts'])
 .component('app', {
   controller: function(pokeApi) {
     this.apiService = pokeApi
