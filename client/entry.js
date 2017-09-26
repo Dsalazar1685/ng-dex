@@ -23,6 +23,7 @@ angular.module('pokedex')
          //this.makeDetails(mon)
         pokeApi.search(mon.url, mon.name)
         .then(details => {
+          details.statData = details.stats.map(stat => stat.base_stat)
           $mdDialog.show({
          //console.log(details)
             controller: DialogController,
@@ -76,6 +77,7 @@ angular.module('pokedex')
       <img class="image" src="{{$ctrl.image()}}"
       <md-button class="md-primary md-raised" ng-click="showAdvanced($event, $ctrl.mon)">
       # {{$ctrl.mon.url.split('/')[6]}}
+
     </md-button>
     </div>`
   })

@@ -30,6 +30,11 @@
    </div>
    <div class='stats'>
    <h3>Base Stats</h3>
+      <canvas id="radar" class="chart chart-radar" chart-data="details.statData" chart-labels="['Speed', 'Special Defense', 'Special Attack', 'Defense', 'Attack', 'HP']" chart-options="{scale: {ticks: {min: 0, max: 180, stepSize: 20}}}">
+  </canvas>
+
+  <p>&nbsp;</p>
+
     <span>HP: {{details.stats[5].base_stat}}</span>
     <span>Attack: {{details.stats[4].base_stat}}</span>
     <span>Defense: {{details.stats[3].base_stat}}</span>
@@ -38,9 +43,14 @@
     <span>Speed: {{details.stats[0].base_stat}}</span>
    </div>
 
-   <canvas id="radar" class="chart chart-radar"
+  <!--  <stats-chart></stats-chart> -->
+<!-- <div data-ng-controller="RadarCtrl as radar">
+<canvas id="radar" class="chart chart-radar"
+<canvas id="radar" class="chart chart-radar" chart-data="$ctrl.data.data" chart-labels="$ctrl.data.labels">
+  </canvas>
   chart-data="data" chart-labels="labels">
 </canvas>
+</div> -->
 
  </div>
 <!--  <h2>Type(s): {{details.types[1].type.name  details.types[0].type.name}}</h2>
@@ -57,9 +67,9 @@ Type(s): {{details.types[1].type.name  details.types[0].type.name
 
 
       </div>
-<!--     </md-dialog-content>
+    </md-dialog-content>
 
-    <md-dialog-actions layout="row">
+<!--     <md-dialog-actions layout="row">
       <md-button target="_blank" md-autofocus>
         More on Wikipedia
       </md-button>
@@ -70,6 +80,6 @@ Type(s): {{details.types[1].type.name  details.types[0].type.name
       <md-button ng-click="answer('useful')">
         Useful
       </md-button>
-    </md-dialog-actions>
+    </md-dialog-actions> -->
   </form>
-</md-dialog> -->
+</md-dialog>

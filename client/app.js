@@ -87,7 +87,13 @@ var pokeData =
   "next": "https://pokeapi.co/api/v2/pokemon/?offset=20"
 }
 
-angular.module('pokedex', ['ngMaterial', 'angularCharts'])
+angular.module('pokedex', ['ngMaterial', 'chart.js'])
+  .config(function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      colors: ['#97BBCD', '#DCDCDC', '#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360']
+    });
+  })
 .component('app', {
   controller: function(pokeApi) {
     this.apiService = pokeApi
@@ -98,5 +104,8 @@ angular.module('pokedex', ['ngMaterial', 'angularCharts'])
     pokeApi.search('https://pokeapi.co/api/v2/pokemon?limit=151', 'pokeData')
     .then(this.getPokemon)
   },
-  template: `<entries class="pokemon-container" pokemon="$ctrl.pokemon"></entries>`
+  template: `<h1 class='title'>ng-dex</h1>
+  <div>Generation selector goes here</div>
+  <div>Search component goes here</div>
+  <entries class="pokemon-container" pokemon="$ctrl.pokemon"></entries>`
 })
