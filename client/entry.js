@@ -51,7 +51,7 @@ angular.module('pokedex')
 
     template: `
     <div class="pokemon-entry" ng-click="showAdvanced($event, $ctrl.mon)">
-      <h1>{{$ctrl.mon.name}}</h1>
+      <h1>{{$ctrl.mon.name[0].toUpperCase() + $ctrl.mon.name.substr(1)}}</h1>
       <img class="image" src="{{$ctrl.image()}}"
       <md-button class="md-primary md-raised" ng-click="showAdvanced($event, $ctrl.mon)">
       Expand

@@ -89,8 +89,13 @@ var pokeData =
 
 angular.module('pokedex', ['ngMaterial'])
 .component('app', {
-  controller: function() {
+  controller: function(pokeApi) {
+    this.apiService = pokeApi
+    this.getPokemon = (pokemon) => {
+      this.pokemon = pokemon
+    }
     this.pokemon = pokeData.results;
+    pokeApi.search(this.getPokemon)
   },
   template: `<entries class="pokemon-container" pokemon="$ctrl.pokemon"></entries>`
 })
