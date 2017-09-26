@@ -6,5 +6,5 @@ angular.module('pokedex')
   },
 
   template:
-    '<entry mon="mon" ng-repeat="mon in $ctrl.pokemon"></entry>'
+    '<entry class="pokemon" mon="mon" ng-repeat="mon in $ctrl.pokemon"></entry>'
 });
