@@ -21,13 +21,14 @@ angular.module('pokedex')
     storage: '<'
 
 
+
   },
 
   template:
     `<div class="search">
     <input type="text" ng-model="$ctrl.query" ng-change="$ctrl.filterPokemon(query)">
     <button class="button" ng-click="$ctrl.filterPokemon(query)">
-      <span class="glyphicaon glyphicon-search" ng-model="query"></span>
+      <span class="glyphicon glyphicon-search" ng-model="query"></span>
     </div>`
 
 });

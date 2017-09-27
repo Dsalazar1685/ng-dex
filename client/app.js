@@ -98,21 +98,22 @@ angular.module('pokedex', ['ngMaterial', 'chart.js'])
   controller: function(pokeApi) {
     this.apiService = pokeApi
     this.getPokemon = (pokemon) => {
-      this.pokemon = pokemon.results
+      this.pokemon = pokemon.pokemon_entries.map((entry) => ({url: entry.pokemon_species.url, name: entry.pokemon_species.name}))
     }
     this.pokemon = pokeData.results;
-    this.storage = 'pokeData'
+    this.storage = 'Kanto'
+    this.setStorage = (storage) => {
+      this.storage = storage
+    }
     this.query;
     this.setQuery = (query) => {
-      console.log(this.query)
       this.query = query;
-      console.log(this.query)
     }
-    pokeApi.search('https://pokeapi.co/api/v2/pokemon?limit=151', 'pokeData')
+    pokeApi.search('https://pokeapi.co/api/v2/pokedex/2', 'Kanto')
     .then(this.getPokemon)
   },
   template: `<h1 class='title'>ng-dex</h1>
-  <div>Generation selector goes here</div>
   <searchbar result="$ctrl.setQuery" storage="$ctrl.storage"></searchbar>
+  <generations change="$ctrl.getPokemon" service="$ctrl.apiService" storage="$ctrl.storage" setstorage="$ctrl.setStorage"></generations>
   <entries class="pokemon-container" pokemon="$ctrl.pokemon" query="$ctrl.query"></entries>`
 })

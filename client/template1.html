@@ -18,7 +18,8 @@
  <div ng-if="details">
    <div class='types'>
      <h3>Type(s):</h3>
-     <span>{{details.types[1].type.name[0].toUpperCase() + details.types[1].type.name.substr(1)}} {{details.types[0].type.name[0].toUpperCase() + details.types[0].type.name.substr(1)}}</span>
+     <span>{{details.types[1].type.name[0].toUpperCase() + details.types[1].type.name.substr(1)}} </span>
+     <div>{{details.types[0].type.name[0].toUpperCase() + details.types[0].type.name.substr(1)}}</div>
    </div>
      <div class='abilities'>
      <h3>Abilities:</h3>
@@ -41,6 +42,12 @@
     <span>Special Attack: {{details.stats[2].base_stat}}</span>
     <span>Special Defense: {{details.stats[1].base_stat}}</span>
     <span>Speed: {{details.stats[0].base_stat}}</span>
+   </div>
+
+   <div>
+     <h3>Vitals</h3>
+     <div>Height:    {{details.height}} feet</div>
+     <div>Weight:    {{details.weight}} lbs</div>
    </div>
 
   <!--  <stats-chart></stats-chart> -->

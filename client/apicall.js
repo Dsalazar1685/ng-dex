@@ -14,6 +14,7 @@ angular.module('pokedex')
         dataType: 'jsonp'
       })
         .then(({data}) => {
+
           localStorage.setItem(storage, JSON.stringify(data))
           return data;
         })

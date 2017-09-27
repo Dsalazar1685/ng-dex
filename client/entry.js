@@ -21,8 +21,12 @@ angular.module('pokedex')
       $scope.showAdvanced = function(ev, mon) {
          // console.log(mon)
          //this.makeDetails(mon)
-        pokeApi.search(mon.url, mon.name)
+        //https://pokeapi.co/api/v2/pokemon/16/
+        var url = "https://pokeapi.co/api/v2/pokemon/" + mon.url.split('/')[6] + '/'
+        //console.log(url, mon.name)
+        pokeApi.search(url, mon.name)
         .then(details => {
+          //console.log(details)
           details.statData = details.stats.map(stat => stat.base_stat)
           $mdDialog.show({
          //console.log(details)
