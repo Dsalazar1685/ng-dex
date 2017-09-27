@@ -26,9 +26,11 @@ angular.module('pokedex')
 
   template:
     `<div class="search">
+    <span>
     <input type="text" ng-model="$ctrl.query" ng-change="$ctrl.filterPokemon(query)">
-    <button class="button" ng-click="$ctrl.filterPokemon(query)">
-      <span class="glyphicon glyphicon-search" ng-model="query"></span>
+    <img src="./images/sprites/sprites/items/poke-ball.png">
+    </span>
+
     </div>`
 
 });

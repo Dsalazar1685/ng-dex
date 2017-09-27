@@ -1,6 +1,6 @@
 angular.module('pokedex')
   .service('pokeApi', function($http) {
-    this.search = function(url, storage, callback) {
+    this.search = function(url, storage) {
 
       var pokemon = JSON.parse(localStorage.getItem(storage))
       if(pokemon) {

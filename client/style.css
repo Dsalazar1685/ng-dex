@@ -3,14 +3,30 @@ body {
   margin: 0;
 }
 
+.header{
+  width: 100%;
+  background: #DC143C;
+}
+
 .title {
   text-align: center;
   font-size: 50px;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #DC143C;
+}
+
+
+
 .pokemon-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background: white;
 }
 
 .pokemon {
@@ -22,6 +38,7 @@ body {
   padding: 10px;
   margin: 10px;
   cursor: pointer;
+  background: white;
 
 }
 
