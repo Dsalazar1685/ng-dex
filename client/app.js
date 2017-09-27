@@ -101,11 +101,18 @@ angular.module('pokedex', ['ngMaterial', 'chart.js'])
       this.pokemon = pokemon.results
     }
     this.pokemon = pokeData.results;
+    this.storage = 'pokeData'
+    this.query;
+    this.setQuery = (query) => {
+      console.log(this.query)
+      this.query = query;
+      console.log(this.query)
+    }
     pokeApi.search('https://pokeapi.co/api/v2/pokemon?limit=151', 'pokeData')
     .then(this.getPokemon)
   },
   template: `<h1 class='title'>ng-dex</h1>
   <div>Generation selector goes here</div>
-  <div>Search component goes here</div>
-  <entries class="pokemon-container" pokemon="$ctrl.pokemon"></entries>`
+  <searchbar result="$ctrl.setQuery" storage="$ctrl.storage"></searchbar>
+  <entries class="pokemon-container" pokemon="$ctrl.pokemon" query="$ctrl.query"></entries>`
 })

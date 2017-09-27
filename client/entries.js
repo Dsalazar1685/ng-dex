@@ -1,10 +1,12 @@
 angular.module('pokedex')
 .component('entries', {
   bindings: {
-    pokemon: '<'
+    pokemon: '<',
+    query: '<'
 
   },
 
   template:
-    '<entry class="pokemon" mon="mon" ng-repeat="mon in $ctrl.pokemon"></entry>'
+  //'<div>{{$ctrl.query}}</div'
+    '<entry class="pokemon" mon="mon" ng-repeat="mon in $ctrl.pokemon | filter:$ctrl.query"></entry>'
 });
